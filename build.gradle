@@ -1,5 +1,8 @@
 plugins {
     id 'nebula.kotlin' version '1.2.41'
+    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC7"
+    id "org.jlleitschuh.gradle.ktlint" version "4.0.0"
+    id "com.bmuschko.nexus" version "2.3.1"
 }
 
 version = version ?: "development"
@@ -21,4 +24,32 @@ dependencies {
     testCompile 'io.findify:s3mock_2.12:0.2.3'
     testCompile 'io.kotlintest:kotlintest:2.0.7'
     testCompile 'org.amshove.kluent:kluent:1.38'
+}
+
+modifyPom {
+    project {
+        name 's3-kontext'
+        description 'a amazon s3 kotlin dsl'
+        url 'https://github.com/AOEpeople/s3-kontext'
+        inceptionYear '2018'
+
+        scm {
+            url 'https://github.com/AOEpeople/s3-kontext'
+            connection 'scm:git:git://github.com/AOEpeople/s3-kontext.git'
+        }
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                name 'AOE GmbH'
+            }
+        }
+    }
 }

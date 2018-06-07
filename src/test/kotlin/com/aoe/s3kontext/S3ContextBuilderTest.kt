@@ -192,7 +192,6 @@ class S3ContextBuilderTest : StringSpec({
         }
     }
 
-
     "use s3 client" {
         //setup:
         val client = AmazonS3ClientBuilder
@@ -219,7 +218,6 @@ class S3ContextBuilderTest : StringSpec({
         }
     }
 
-
     "should use bucket from constructor"() {
         //setup:
         System.setProperty("S3_ACCESS_KEY_ID", "foo")
@@ -243,11 +241,12 @@ class S3ContextBuilderTest : StringSpec({
             s3Client.deleteBucket(bucketName)
         }
     }
-
 }) {
     companion object {
-        val s3Mock = S3Mock.Builder().withPort(8001).withInMemoryBackend().build().start()
-        const val FOLDER = "someFolder/"
+        init {
+            S3Mock.Builder().withPort(8001).withInMemoryBackend().build().start()
+        }
+        private const val FOLDER = "someFolder/"
         const val FILENAME = "$FOLDER}testfile.csv"
         const val FILENAME2 = "${FOLDER}testfile2.csv"
         const val FILENAME3 = "${FOLDER}testfile3.png"
