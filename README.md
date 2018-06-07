@@ -45,7 +45,7 @@ s3(s3Client = someAmazonS3) {
     ...
 }
 ```
-_EXTRA:_ Id like to define the bucket name dynamicly
+_EXTRA:_ Id like to define the bucket name dynamically
 -----
 No problem... just pass it in when you create the s3 kontext
 ```kotlin
